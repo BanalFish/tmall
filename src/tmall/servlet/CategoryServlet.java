@@ -19,7 +19,7 @@ public class CategoryServlet extends BaseBackServlet{
 
     public String add(HttpServletRequest request, HttpServletResponse response, Page page) {
         Map<String,String> params=new HashMap<>();
-        //
+        //接收输入流
         InputStream is=super.parseUpload(request,params);
 
         String name=params.get("name");
@@ -31,7 +31,7 @@ public class CategoryServlet extends BaseBackServlet{
         File file=new File(imageFolder,c.getId()+".jpg");
 
         try{
-            if(null!=is && 0!=is.available()){
+            if(null!=is && 0!=is.available()){//.available用于看接收了多少个字节，本地用没有问题，但是网络通信很有可能丢失字节
                 try(FileOutputStream fos=new FileOutputStream(file)){
                     byte b[]=new byte[1024*1024];
                     int length=0;

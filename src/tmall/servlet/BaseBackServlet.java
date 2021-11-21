@@ -75,6 +75,12 @@ public abstract class BaseBackServlet extends HttpServlet {
 
     }
 
+    /**
+     * 返回用户传输文件的输入流
+     * @param request
+     * @param params
+     * @return
+     */
     public InputStream parseUpload(HttpServletRequest request, Map<String,String> params){
         InputStream is=null;
         try {
@@ -87,6 +93,7 @@ public abstract class BaseBackServlet extends HttpServlet {
             Iterator iter = items.iterator();
             while (iter.hasNext()) {
                 FileItem item = (FileItem) iter.next();
+                //判断此表单是否是普通类型，false则为file类
                 if (!item.isFormField()) {
                     // item.getInputStream() 获取上传文件的输入流
                     is = item.getInputStream();

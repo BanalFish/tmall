@@ -8,6 +8,11 @@ import java.io.IOException;
 
 public class ImageUtil {
 
+    /**
+     * 确保格式是二进制
+     * @param f
+     * @return
+     */
     public static BufferedImage change2jpg(File f) {
         try {
             Image i = Toolkit.getDefaultToolkit().createImage(f.getAbsolutePath());
@@ -27,6 +32,13 @@ public class ImageUtil {
         }
     }
 
+    /**
+     * 用于改变图片大小，上传图片的时候会用到
+     * @param srcFile
+     * @param width
+     * @param height
+     * @param destFile
+     */
     public static void resizeImage(File srcFile, int width,int height, File destFile) {
         try {
             Image i = ImageIO.read(srcFile);
