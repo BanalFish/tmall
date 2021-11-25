@@ -29,7 +29,7 @@ public class BackServletFilter implements Filter {
             //http://127.0.0.1:8080/tmall/admin_category_list 获取categoryServlet
             String servletPath=StringUtils.substringBetween(uri,"_","_")+"Servlet";
             //获取list
-            String method=StringUtils.substringAfter(uri,"_");
+            String method=StringUtils.substringAfterLast(uri,"_");
             //要想从request获得属性，必须先给它设置属性
             request.setAttribute("method",method);
 

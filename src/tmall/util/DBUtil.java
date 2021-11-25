@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBUtil {
     static String loginName = "root";
-    static String password = "ma117861";
+    static String password = "123456";
 
     static {
         try{
@@ -22,9 +22,4 @@ public class DBUtil {
         return DriverManager.getConnection(url,loginName,password);
 
     }
-    public static void main(String[] args) throws SQLException {
-        System.out.println(getConnection());
-
-    }
-
 }
